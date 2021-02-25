@@ -11,13 +11,6 @@ from discord.ext.commands import BucketType
 import json
 
 
-def get_prefix(bot, message):
-    with open('prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-
-    return prefixes[str(message.guild.id)]
-
-
 #Bot instance
 bot = commands.Bot(command_prefix= get_prefix)
 
@@ -60,7 +53,6 @@ bot.load_extension(f"cogs.functions")
 bot.load_extension(f"cogs.games")
 bot.load_extension(f"cogs.fun") 
 bot.load_extension(f"cogs.images")
-bot.load_extension(f"cogs.utility")
 
 
 bot.run(os.environ['BOT_TOKEN'])
