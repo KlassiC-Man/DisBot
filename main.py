@@ -1,4 +1,4 @@
-
+#import
 import discord
 from discord import colour
 from discord import message
@@ -11,7 +11,7 @@ from discord.ext.commands import BucketType
 
 
 #Bot instance
-bot = commands.Bot(command_prefix='#')
+bot = commands.Bot(command_prefix='#' #)
 
 #Help Command for The bot!
 class MyHelp(commands.HelpCommand):
