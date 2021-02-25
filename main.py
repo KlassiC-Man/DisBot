@@ -8,6 +8,7 @@ from discord.ext.commands.core import command, cooldown
 import discord.utils
 import random
 from discord.ext.commands import BucketType
+import json
 
 
 def get_prefix(bot, message):
