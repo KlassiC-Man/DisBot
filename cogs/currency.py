@@ -156,7 +156,7 @@ class Currency(commands.Cog):
         else:
             await ctx.send("An error was caused SORRY!")
 
-    @commands.command(help="Use the command to check what commands are there in your bag!", usage="#bag")
+    @commands.command(aliases=['inventory'], help="Use the command to check what commands are there in your bag!", usage="`#bag`")
     async def bag(self, ctx):
         await open_account(ctx.author)
         user = ctx.author
@@ -173,7 +173,7 @@ class Currency(commands.Cog):
         await ctx.send(embed=em)
 
 
-    @commands.command(help="Use this command to sell stuff in your bag which you have bought for some money!", usage="#sell (name of item)")
+    @commands.command(help="Use this command to sell stuff in your bag which you have bought for some money!", usage="`#sell (name of item)`")
     @commands.guild_only()
     async def sell(self, ctx, item, amount=1):
         await open_account(ctx.author)
