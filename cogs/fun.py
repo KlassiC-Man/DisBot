@@ -64,7 +64,7 @@ class Fun(commands.Cog):
 
     @commands.command(aliases=['dumbweb'], help="Go and check a website which is completely useless? You will enjoy it tho!", usage="`#uselessweb`")
     async def uselessweb(self, ctx):
-        links = random.choice(['https://mondrianandme.com/', 'https://thatsthefinger.com/', 'http://endless.horse/','http://eelslap.com/', 'https://smashthewalls.com/', 'https://alwaysjudgeabookbyitscover.com/', 'https://weirdorconfusing.com/', 'https://cant-not-tweet-this.com/', 'https://trypap.com/', 'https://jacksonpollock.org/', 'https://heeeeeeeey.com/'])
+        links = random.choice(['https://mondrianandme.com/', 'https://thatsthefinger.com/', 'http://endless.horse/', 'http://eelslap.com/', 'https://smashthewalls.com/', 'https://alwaysjudgeabookbyitscover.com/','https://weirdorconfusing.com/', 'https://cant-not-tweet-this.com/', 'https://trypap.com/', 'https://jacksonpollock.org/', 'https://heeeeeeeey.com/', 'http://burymewithmymoney.com/', 'http://www.movenowthinklater.com/', 'http://www.everydayim.com/', 'https://cat-bounce.com/', 'https://chrismckenzie.com/', 'https://thezen.zone/'])
         await ctx.reply(links) 
 
     @commands.command(aliases=['gamerrate', 'epicgamerrate'], help="Check how much a gamer you are!?", usage="`#howgamer`")
@@ -119,6 +119,17 @@ class Fun(commands.Cog):
             await ctx.send("It was one of the most **dangerous** hacks ever")
         else:
             await ctx.send(f"Hey! {ctx.author.mention}, you have to mention someone to hack!")
+
+
+    @commands.command(help="Use the command to check how much of a gay you are or mention someone to check howgay they are!?", usage="`#howgay`", aliases=['gayness'])
+    async def howgay(self, ctx, member: discord.Member=None):
+        gayness = random.randrange(1, 100)
+        if member == None:
+            self_embed = discord.Embed(title="Gay Rate Machine", description=f"{ctx.author.name} is {gayness}% gay!", colour=discord.Colour.green())
+            await ctx.send(embed=self_embed)
+        elif member != None:
+            mem_embed = discord.Embed(title="Gay Rate Machine", description=f"{member} is {gayness}% gay!", colour=discord.Colour.teal())
+            await ctx.send(embed=mem_embed)
 
 
     

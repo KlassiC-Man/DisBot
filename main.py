@@ -10,8 +10,15 @@ import random
 from discord.ext.commands import BucketType
 
 
+def get_prefix(bot, message):
+    with open('prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    return prefixes[str(message.guild.id)]
+
+
 #Bot instance
-bot = commands.Bot(command_prefix='#')
+bot = commands.Bot(command_prefix= get_prefix)
 
 #Help Command for The bot!
 class MyHelp(commands.HelpCommand):
@@ -45,12 +52,14 @@ class MyHelp(commands.HelpCommand):
 
 bot.help_command = MyHelp()
 
+
 #Loading the cogs
 bot.load_extension(f"cogs.currency")
 bot.load_extension(f"cogs.functions")
 bot.load_extension(f"cogs.games")
 bot.load_extension(f"cogs.fun") 
 bot.load_extension(f"cogs.images")
+bot.load_extension(f"cogs.utility")
 
 
 bot.run(os.environ['BOT_TOKEN'])

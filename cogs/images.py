@@ -103,7 +103,7 @@ class Images(commands.Cog):
             top = subreddit.top(limit=50)
 
             for submission in top:
-                all_subs.appen(submission)
+                all_subs.append(submission)
             random_sub = random.choice(all_subs)
             name = random_sub.title
             url = random_sub.url
