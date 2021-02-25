@@ -52,4 +52,4 @@ bot.load_extension(f"cogs.games")
 bot.load_extension(f"cogs.fun") 
 
 
-bot.run(os.environ(BOT_TOKEN))
+bot.run(os.environ['BOT_TOKEN'])
