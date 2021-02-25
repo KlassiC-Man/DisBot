@@ -25,6 +25,12 @@
 * postmeme
 ### _**Games**_
 * rps (ROCK PAPER SCIZZOR)
+### _**Reddit And Images**_
+* meme
+* dog
+* cat
+* owl
+* lizzard
 
 ## Using my bot!
 ### To use the already made bot by me please click on the [link](https://discord.com/api/oauth2/authorize?client_id=784051340305104936&permissions=8&scope=bot)!
