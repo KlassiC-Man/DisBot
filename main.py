@@ -12,7 +12,7 @@ import json
 
 
 #Bot instance
-bot = commands.Bot(command_prefix= get_prefix)
+bot = commands.Bot(command_prefix='#')
 
 #Help Command for The bot!
 class MyHelp(commands.HelpCommand):
