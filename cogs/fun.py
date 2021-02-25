@@ -19,24 +19,23 @@ fake_pass = random.choice(['nothingmuch', 'dumbPersonIam', '*****', 'IamAnIdiot'
 
 best_fake_friends = random.choice(['Censor', 'I am Dumb Like you', 'The guy he hates the most', 'The biggest ass', 'no one'])
 
-roasts = random.choice(
-    ['Oh you’re talking to me, I thought you only talked behind my back',
-     "Don’t you get tired of putting make up on two faces every morning?",
-     "Too bad you can’t count jumping to conclusions and running your mouth as exercise."
-     "Is your drama going to an intermission soon?",
-     "My business is my business. Unless you’re a thong, get out of my ass.",
-     "It’s a shame you can’t Photoshop your personality.",
-     "I don’t sugarcoat shit. I’m not Willy Wonka.",
-     "Calm down. Take a deep breath and then hold it for about twenty minutes.",
-     "When karma comes back to punch you in the face, I want to be there in case it needs help.",
-     "You have more faces than Mount Rushmore",
-     "Where’s your off button?",
-     "If I had a face like yours I’d sue my parents.",
-     "I’m jealous of people who don’t know you.",
-     "Is there an app I can download to make you disappear?",
-     "It’s scary to think people like you are allowed to vote. ",
-     "I’m sorry, what language are you speaking? It sounds like bullshit.",
-     "I keep thinking you can’t get any dumber and you keep proving me wrong."])
+roasts = random.choice(['Oh you’re talking to me, I thought you only talked behind my back',
+                        "Don’t you get tired of putting make up on two faces every morning?",
+                        "Too bad you can’t count jumping to conclusions and running your mouth as exercise."
+                        "Is your drama going to an intermission soon?",
+                        "My business is my business. Unless you’re a thong, get out of my ass.",
+                        "It’s a shame you can’t Photoshop your personality.",
+                        "I don’t sugarcoat shit. I’m not Willy Wonka.",
+                        "Calm down. Take a deep breath and then hold it for about twenty minutes.",
+                        "When karma comes back to punch you in the face, I want to be there in case it needs help.",
+                        "You have more faces than Mount Rushmore",
+                        "Where’s your off button?",
+                        "If I had a face like yours I’d sue my parents.",
+                        "I’m jealous of people who don’t know you.",
+                        "Is there an app I can download to make you disappear?",
+                        "It’s scary to think people like you are allowed to vote. ",
+                        "I’m sorry, what language are you speaking? It sounds like bullshit.",
+                        "I keep thinking you can’t get any dumber and you keep proving me wrong."])
 
 class Fun(commands.Cog):
     def __init__(self, bot):
