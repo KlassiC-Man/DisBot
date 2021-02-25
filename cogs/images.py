@@ -8,7 +8,8 @@ import praw
 reddit = praw.Reddit(client_id="5-_GzjyTOOhukQ",
                      client_secret=os.environ['REDDIT_SECRET'],
                      username="idioticspaceman",
-                     password=os.environ['REDDIT_PASS'])
+                     password=os.environ['REDDIT_PASS'],
+                     user_agent="Economy-BOT")
 
 class Images(commands.Cog):
     def __init__(self, bot):
