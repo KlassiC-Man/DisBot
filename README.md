@@ -1,10 +1,10 @@
 # DisBot
 ## Made by print("Hello World")#5100 on Discord
 ### __Features__
-#### **Fun Commands**
-##### Hack
-##### Simprate
-##### Chumprate
+#### _**Fun Commands**_
+* Hack
+* Simprate
+* Chumprate
 ##### Roast
 ##### Google
 ##### Uselessweb
