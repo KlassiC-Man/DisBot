@@ -50,6 +50,7 @@ bot.load_extension(f"cogs.currency")
 bot.load_extension(f"cogs.functions")
 bot.load_extension(f"cogs.games")
 bot.load_extension(f"cogs.fun") 
+bot.load_extension(f"cogs.images")
 
 
 bot.run(os.environ['BOT_TOKEN'])
