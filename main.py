@@ -1,4 +1,5 @@
 #import
+from cogs.utility import Utility
 import discord
 from discord import colour
 from discord import message

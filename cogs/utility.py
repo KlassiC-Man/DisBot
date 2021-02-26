@@ -1,23 +1,33 @@
 import discord
-import json
 from discord.ext import commands
 import os
+
 
 class Utility(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['cutomprefix'], help="Use the command to change the prefix", usage="`#customprefix`")
-    async def changeprefix(self, ctx, prefix):
-        with open('prefixes.json', 'r') as f:
-            prefixes = json.load(f)
+    @commands.command(aliases=['export'], help="Use the command to unload categories when required can be done only by server administartor!", usage="`#unload (category)`")
+    @commands.is_owner()
+    async def unload(self, ctx, cog: str):
+        try:
+            self.bot.load_extension(f"cogs.{cog}")
+        except Exception as e:
+            await ctx.send(f"Couldn't unload the {cog} category")
+            return
+        await ctx.send("Category unloaded")
 
-        prefixes.pop(str(guild.id))
 
-        with open('prefixes.json', 'w') as f:
-            json.dump(prefixes, f, indent=4)
+    @commands.command(aliases=['import'], help="Use this command to load categories if you have unloaded them **only server owners can use this**", usage="`#load (category)`")
+    @commands.is_owner()
+    async def load(self, ctx, cog: str):
+        try:
+            self.bot.load_extension(f"cogs.{cog}")
+        except Exception as e:
+            await ctx.send(f"Couldn't load the category!")
+            return
+        await ctx.send("Category loaded!")
 
-        await ctx.send("Prefix successfully changed!")
 
 
 def setup(bot):
