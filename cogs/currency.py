@@ -397,16 +397,66 @@ class Currency(commands.Cog):
             with open("usersbank.json", 'w') as f:
                 json.dump(users, f)
 
-    
-    @postmeme.error
-    async def postmeme_error(self, ctx, error):
-        if isinstance(error, commands.CommandOnCooldown):
-            error = error.retry_after
-            tim = round(error)
-            embed = discord.Embed(title="Tooo Fast Man!", description=f"You can post meme after {tim} more seconds")
-            embed.set_thumbnail(url = ctx.author.avatar_url)
-            await ctx.reply(embed=embed, mention_author=True)
 
+    @commands.command(help="Use the command to play slots with the bot! Lets see how much you win!", usage="`#slots (amount)`")
+    @commands.guild_only()
+    @commands.cooldown(1, 20, BucketType.user)
+    async def slots(self, ctx, amount=None):
+        await open_account(ctx.author)
+        if amount == None:
+            await ctx.send("Please enter the amount you want to bet along with the command")
+            return
+        bal = await update_bank(ctx.author)
+        amount = int(amount)
+        if amount > bal[0]:
+            await ctx.send("You dont have that much money!!")
+            return
+        if amount < 0:
+            await ctx.send("Amount must be positive")
+            return
+        final = []
+        for i in range(3):
+            a = random.choice([":poop:", ":smile:", ":cherry_blossom:", ":shower:"])
+            final.append(a)
+        await ctx.send(str(final))
+        if final[0] == final[1] or final[0] == final[2] or final[2] == final[1]:
+            await update_bank(ctx.author, 2*amount)
+            await ctx.send("**you won!**")
+        else:
+            await update_bank(ctx.author, -1*amount)
+            await ctx.send("**you lost!**")
+
+
+    @commands.command(help="Use the command to search some place and find some money!", usage="`#search`")
+    async def search(self, ctx):
+        await open_account(ctx.author)
+        user = ctx.author
+        users = await get_bank_data()
+        p1 = random.choice(['gutter', 'purse', 'attic', 'treehouse', 'tree'])
+        p2 = random.choice(['discord', 'pocket', 'bushes', 'neighbours house'])
+        p3 = random.choice(['van', 'bed', 'drawer', 'bus'])
+        earnings = random.randrange(1, 400)
+        await ctx.send(f"{user.mention}, **Where do you want to search!?**\nPick from the list below and type it in the chat!\n`{p1}` `{p2}` `{p3}`")
+        def check(m):
+            msg = return m.author == user
+        await self.bot.wait_for('message', check=check, timeout=15.0)
+        if p1 in msg.content:
+            await msg.reply(f"{user.mention}, searched: **{p1}**\nAND Found: **{earnings}**")
+            users[str(user.id)]["wallet"] += earnings
+            with open("usersbank.json", 'w') as f:
+                json.dump(users, f)
+        elif p2 in msg.content:
+            await msg.reply(f"{user.mention}, searched: **{p2}**\nAND Found: **{earnings}**")
+            users[str(user.id)]["wallet"] += earnings
+            with open("usersbank.json", 'w') as f:
+                json.dump(users, f)
+        elif p3 in msg.content:
+            await msg.reply(f"{user.mention}, searched: **{p3}**\nAND Found: **{earnings}**")
+            users[str(user.id)]["wallet"] += earnings
+            with open("usersbank.json", 'w') as f:
+                json.dump(users, f)
+
+        
 
 
 def setup(bot):

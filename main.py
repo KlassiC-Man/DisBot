@@ -1,4 +1,5 @@
 #import
+from discord import errors
 from cogs.utility import Utility
 import discord
 from discord import colour
@@ -55,6 +56,7 @@ bot.load_extension(f"cogs.games")
 bot.load_extension(f"cogs.fun") 
 bot.load_extension(f"cogs.images")
 bot.load_extension(f"cogs.utility")
+bot.load_extension(f"cogs.errors")
 
 
 bot.run(os.environ['BOT_TOKEN'])
