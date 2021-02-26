@@ -1,6 +1,7 @@
 import discord
 import asyncio
-from discord.ext import commands, cooldown
+from discord.ext import commands
+from discord.ext.commands import command, cooldown
 from discord.ext.commands.core import BucketType
 from cogs.currency import postmeme, slots
 
