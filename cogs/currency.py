@@ -438,8 +438,8 @@ class Currency(commands.Cog):
         earnings = random.randrange(1, 400)
         await ctx.send(f"{user.mention}, **Where do you want to search!?**\nPick from the list below and type it in the chat!\n`{p1}` `{p2}` `{p3}`")
         def check(m):
-            msg = return m.author == user
-        await self.bot.wait_for('message', check=check, timeout=15.0)
+            return m.author == user
+        msg = await self.bot.wait_for('message', check=check, timeout=15.0)
         if p1 in msg.content:
             await msg.reply(f"{user.mention}, searched: **{p1}**\nAND Found: **{earnings}**")
             users[str(user.id)]["wallet"] += earnings
