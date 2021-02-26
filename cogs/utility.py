@@ -11,7 +11,7 @@ class Utility(commands.Cog):
     @commands.is_owner()
     async def unload(self, ctx, cog: str):
         try:
-            self.bot.load_extension(f"cogs.{cog}")
+            self.bot.unload_extension(f"cogs.{cog}")
         except Exception as e:
             await ctx.send(f"Couldn't unload the {cog} category")
             return
@@ -27,6 +27,11 @@ class Utility(commands.Cog):
             await ctx.send(f"Couldn't load the category!")
             return
         await ctx.send("Category loaded!")
+
+
+    @commands.command(aliases=['latency'], help="Use the command to check the bots ping and latency!", usage="`#ping`")
+    async def ping(self, ctx):
+        await ctx.send(f'Pong! {round(self.bot.latency * 1000)}ms')
 
 
 
