@@ -161,7 +161,7 @@ class Fun(commands.Cog):
         if string == None:
             await ctx.reply("Hey you have to tell me what is the spoiler")
         elif string != None:
-            await ctx.send(|| string ||)
+            await ctx.send(f"|| {string} ||")
 
 
     
