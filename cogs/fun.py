@@ -156,6 +156,13 @@ class Fun(commands.Cog):
                     'You may rely on it.']
         await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
+    @commands.command(help="Use the command to tell me a spoiler! Shhh! I won't tell it to anyone", usage="`#spoiler (spoiler stuff)`", aliases=['secret'])
+    async def spoiler(self, ctx, string: str=None):
+        if string == None:
+            await ctx.reply("Hey you have to tell me what is the spoiler")
+        elif string != None:
+            await ctx.send(|| string ||)
+
 
     
 
