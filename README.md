@@ -34,4 +34,4 @@
 
 ## Using my bot!
 ### To use the already made bot by me please click on the [link](https://discord.com/api/oauth2/authorize?client_id=784051340305104936&permissions=8&scope=bot)!
-## The bot is still under development and new features will be coming almost everyday!
+## The bot is in production mode and code can be copied freely!
